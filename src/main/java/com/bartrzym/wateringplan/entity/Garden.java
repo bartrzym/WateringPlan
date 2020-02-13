@@ -1,10 +1,9 @@
 package com.bartrzym.wateringplan.entity;
 
+import com.bartrzym.wateringplan.enums.model.SoilType;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Time;
-import java.util.HashMap;
 import java.util.List;
 
 @Entity

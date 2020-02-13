@@ -1,6 +1,6 @@
 package com.bartrzym.wateringplan.entity;
 
-import lombok.Builder;
+import com.bartrzym.wateringplan.enums.model.NozzleType;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ public class Nozzle{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String Type;
+    private NozzleType type;
     private String name;
     private BigDecimal waterExpenditure; //liters per minute
     private BigDecimal range;// meters
