@@ -3,6 +3,7 @@ package com.bartrzym.wateringplan.controller;
 import com.bartrzym.wateringplan.entity.Client;
 import com.bartrzym.wateringplan.entity.Nozzle;
 import com.bartrzym.wateringplan.repo.NozzleRepo;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,7 +54,13 @@ public class NozzleController {
 
     @GetMapping("/nozzle/delete/{id}")
     public String deleteClient(@PathVariable Long id, Model model) {
-        nozzleRepo.deleteById(id);
+        try {
+            nozzleRepo.deleteById(id);
+        } catch (Exception ignored) {
+
+
+        }
+
         model.addAttribute("nozzles", nozzleRepo.findAll());
         return "nozzle/index";
 
